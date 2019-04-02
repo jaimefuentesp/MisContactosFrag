@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         //GridLayoutManager glm = new GridLayoutManager(this,2);
 
-
         listaContactos.setLayoutManager(llm);
         inicializarListaContactos();
         inicializarAdaptador();
