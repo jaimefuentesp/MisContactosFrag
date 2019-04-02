@@ -29,12 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
         listaContactos = (RecyclerView) findViewById(R.id.rvContacto);
 
-        //LinearLayoutManager llm = new LinearLayoutManager(this);
-        //llm.setOrientation(LinearLayoutManager.VERTICAL);
-        GridLayoutManager glm = new GridLayoutManager(this,2);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        //GridLayoutManager glm = new GridLayoutManager(this,2);
 
 
-        listaContactos.setLayoutManager(glm);
+        listaContactos.setLayoutManager(llm);
         inicializarListaContactos();
         inicializarAdaptador();
 
