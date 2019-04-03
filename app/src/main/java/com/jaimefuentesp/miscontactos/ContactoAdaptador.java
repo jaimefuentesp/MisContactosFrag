@@ -80,5 +80,4 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
             btnLike     =(ImageButton) itemView.findViewById(R.id.btnLike);
         }
     }
-
 }

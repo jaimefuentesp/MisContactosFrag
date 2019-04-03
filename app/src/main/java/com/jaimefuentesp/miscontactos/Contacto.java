@@ -6,9 +6,6 @@ public class Contacto {
     private String email;
     private int foto;
 
-
-
-    
     public Contacto(int foto, String nombre, String telefono,String email) {
         this.foto=foto;
         this.nombre = nombre;
