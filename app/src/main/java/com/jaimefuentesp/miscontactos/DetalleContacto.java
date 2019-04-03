@@ -24,9 +24,6 @@ public class DetalleContacto extends AppCompatActivity {
         String telefono=parametros.getString(getResources().getString(R.string.ptelefono));
         String email=parametros.getString(getResources().getString(R.string.pmail));
 
-        Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
-        setSupportActionBar(miActionBar);
-
         tvNombre = (TextView) findViewById(R.id.tvNombre);
         tvTelefono = (TextView) findViewById(R.id.tvTelefono);
         tvMail = (TextView) findViewById(R.id.tvmail);

@@ -24,18 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
-        setSupportActionBar(miActionBar);
-
-        listaContactos = (RecyclerView) findViewById(R.id.rvContacto);
-
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        //GridLayoutManager glm = new GridLayoutManager(this,2);
-
-        listaContactos.setLayoutManager(llm);
-        inicializarListaContactos();
-        inicializarAdaptador();
+        inicializarConRecyclerView();
 
         /*
         ArrayList<String> nombresContacto = new ArrayList<>();
@@ -63,6 +52,18 @@ public class MainActivity extends AppCompatActivity {
         */
 
 
+    }
+
+    public void inicializarConRecyclerView () {
+        listaContactos = (RecyclerView) findViewById(R.id.rvContacto);
+
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        //GridLayoutManager glm = new GridLayoutManager(this,2);
+
+        listaContactos.setLayoutManager(llm);
+        inicializarListaContactos();
+        inicializarAdaptador();
     }
 
     public void inicializarAdaptador () {
