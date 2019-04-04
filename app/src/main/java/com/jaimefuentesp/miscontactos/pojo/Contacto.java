@@ -1,4 +1,4 @@
-package com.jaimefuentesp.miscontactos;
+package com.jaimefuentesp.miscontactos.pojo;
 
 public class Contacto {
     private String nombre;

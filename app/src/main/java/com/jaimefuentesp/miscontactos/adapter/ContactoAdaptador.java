@@ -1,4 +1,4 @@
-package com.jaimefuentesp.miscontactos;
+package com.jaimefuentesp.miscontactos.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,9 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.jaimefuentesp.miscontactos.pojo.Contacto;
+import com.jaimefuentesp.miscontactos.DetalleContacto;
+import com.jaimefuentesp.miscontactos.R;
 
 import java.util.ArrayList;
 
@@ -43,7 +46,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
             @Override
             public void onClick(View v) {
                 Toast.makeText(activity, contacto.getNombre(), Toast.LENGTH_SHORT).show();
-                Intent intentDetatlleContacto = new Intent(activity,DetalleContacto.class);
+                Intent intentDetatlleContacto = new Intent(activity, DetalleContacto.class);
                 intentDetatlleContacto.putExtra("nombre",contacto.getNombre());
                 intentDetatlleContacto.putExtra("telefono",contacto.getTelefono());
                 intentDetatlleContacto.putExtra("email",contacto.getEmail());
