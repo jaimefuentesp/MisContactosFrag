@@ -13,13 +13,16 @@ import android.view.ViewGroup;
 import com.jaimefuentesp.miscontactos.R;
 import com.jaimefuentesp.miscontactos.adapter.ContactoAdaptador;
 import com.jaimefuentesp.miscontactos.pojo.Contacto;
+import com.jaimefuentesp.miscontactos.presentador.IRecyclerViewFragmentPresenter;
+import com.jaimefuentesp.miscontactos.presentador.RecycletViewFragmentPresenter;
 
 import java.util.ArrayList;
 
-public class RecyclerViewFragment extends Fragment {
+public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragmentView {
 
     ArrayList<Contacto> contactos;
     private RecyclerView listaContactos;
+    private IRecyclerViewFragmentPresenter presenter;
 
     @Nullable
     @Override
@@ -27,30 +30,32 @@ public class RecyclerViewFragment extends Fragment {
         //return super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.fragment_recyclerview,container,false);
         listaContactos = (RecyclerView) v.findViewById(R.id.rvContacto);
-
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        //GridLayoutManager glm = new GridLayoutManager(this,2);
-
-        listaContactos.setLayoutManager(llm);
-        inicializarListaContactos();
-        inicializarAdaptador();
+        presenter = new RecycletViewFragmentPresenter(this,getContext());
         return v;
     }
 
-    public void inicializarAdaptador () {
-        ContactoAdaptador adaptador=new ContactoAdaptador(contactos,getActivity());
-        listaContactos.setAdapter(adaptador);
+    /*
+    public void inicializarListaContactos () {
+
+    }
+    */
+
+    @Override
+    public void generarLinearLayoutVertical() {
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        //GridLayoutManager glm = new GridLayoutManager(this,2);
+        listaContactos.setLayoutManager(llm);
     }
 
-    public void inicializarListaContactos () {
-        contactos = new ArrayList<Contacto>();
+    @Override
+    public ContactoAdaptador crearAdaptador(ArrayList<Contacto> contactos) {
+        ContactoAdaptador adaptador=new ContactoAdaptador(contactos,getActivity());
+        return adaptador;
+    }
 
-        contactos.add(new Contacto(R.drawable.foto_2, "Jaime Fuentes", "997890707", "jaime@mail.com"));
-        contactos.add(new Contacto(R.drawable.del_piero,"Luis Alvarez", "991234567", "luis@mail.com"));
-        contactos.add(new Contacto(R.drawable.buffin,"Cesar Soto", "999888777", "cesar@mail.com"));
-        contactos.add(new Contacto(R.drawable.ronaldo,"Dony Tinoco", "999777555", "dony@mail.com"));
-        contactos.add(new Contacto(R.drawable.juve1,"Caro Huertas", "999222333", "caro@mail.com"));
-
+    @Override
+    public void inicializarAdaptadorRV(ContactoAdaptador adaptador) {
+        listaContactos.setAdapter(adaptador);
     }
 }
