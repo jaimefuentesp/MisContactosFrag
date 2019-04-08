@@ -17,6 +17,10 @@ public class Contacto {
         this.likes = likes;
     }
 
+    public Contacto() {
+
+    }
+
     public int getFoto() {return foto;}
 
     public void setFoto(int foto) {this.foto=foto;}
